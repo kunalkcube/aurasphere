@@ -1,0 +1,22 @@
+@import "tailwindcss";
+
+@theme {
+    --font-geist: "Geist Mono", monospace;
+}
+/* Custom Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #CE4B43, transparent);
+    transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #444;
+}
