@@ -239,7 +239,7 @@ const App = () => {
                 {minuteCast && minuteCast.map((hour, index) => {
                   const hourTime = new Date(hour.DateTime);
                   const displayTime = hourTime.toLocaleTimeString([], { hour: 'numeric', minute: '2-digit', hour12: true });
-                  const temp = Math.round(hour.Temperature.Value);
+                  const temp = Math.round((hour.Temperature.Value - 32) * 5 / 9);
 
                   return (
                     <div
