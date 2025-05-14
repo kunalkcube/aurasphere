@@ -244,7 +244,7 @@ const App = () => {
                   return (
                     <div
                       key={index}
-                      className={`flex flex-col justify-start items-center min-w-20 p-3 rounded-xl backdrop-blur-sm ${index === 0 ? 'bg-[#E395A1]/80 border-b-2 border-[#CE4B43]' : 'bg-white/60'}`}
+                      className={`flex flex-col justify-start items-center min-w-20 p-3 rounded-xl bg-white/60 backdrop-blur-sm ${index === 0 && 'border-b-2 border-[#CE4B43]'}`}
                     >
                       <span className='text-xs font-medium mb-1'>{displayTime}</span>
 
