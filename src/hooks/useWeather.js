@@ -14,22 +14,24 @@ export const useWeather = () => {
             setLoading(true);
             setError(null);
 
-            // Get location key
-            const locationKey = await getLocationKey(searchQuery);
-            if (!locationKey) {
+            // Get location key and details
+            const locationData = await getLocationKey(searchQuery);
+            if (!locationData || !locationData.key) {
                 throw new Error('Location not found');
             }
 
+            setLocation(locationData.name);
+
             // Get current conditions
-            const currentData = await getCurrentConditions(locationKey);
+            const currentData = await getCurrentConditions(locationData.key);
             setCurrentWeather(currentData);
 
             // Get 5-day forecast
-            const forecastData = await get5DayForecast(locationKey);
+            const forecastData = await get5DayForecast(locationData.key);
             setForecast(forecastData);
 
             // Get MinuteCast data
-            const minuteCastData = await getMinuteCast(locationKey);
+            const minuteCastData = await getMinuteCast(locationData.key);
             setMinuteCast(minuteCastData);
 
             setLoading(false);
@@ -59,7 +61,6 @@ export const useWeather = () => {
 
     const searchLocation = (query) => {
         fetchWeatherData(query);
-        setLocation(query);
     };
 
     useEffect(() => {
